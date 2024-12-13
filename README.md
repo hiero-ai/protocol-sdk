@@ -11,7 +11,7 @@ yarn add @hiero/protocol-sdk
 ## Usage
 
 ```typescript
-import { HieroClient } from "@hiero/protocol-sdk";
+import { HieroClient } from "@hiero-ai/protocol-sdk";
 
 // Initialize the client
 const client = new HieroClient({

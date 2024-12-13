@@ -1,11 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.HieroClient = void 0;
-const ethers_1 = require("ethers");
-class HieroClient {
+import { Wallet } from "ethers";
+export class HieroClient {
+    baseUrl;
+    signer;
     constructor(config) {
         this.baseUrl = config.baseUrl.replace(/\/$/, "");
-        this.signer = new ethers_1.Wallet(config.privateKey);
+        this.signer = new Wallet(config.privateKey);
     }
     async signRequest(method, path, body) {
         const message = body ? JSON.stringify(body) : "";
@@ -93,4 +92,3 @@ class HieroClient {
         return this.request("POST", `/api/v1/services/${serviceId}/authorize`, authorization);
     }
 }
-exports.HieroClient = HieroClient;
